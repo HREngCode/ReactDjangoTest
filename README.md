@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ReactDjango_JWT_StarterCode
 
 Starter code for full stack React + Django applications using JWT for authentication/authorization and a fully working register/login system on the React side
@@ -16,3 +17,6 @@ Starter code for full stack React + Django applications using JWT for authentica
 - for a great reference, see the following article: https://simpleisbetterthancomplex.com/tutorial/2018/01/18/how-to-implement-multiple-user-types-with-django.html
   - note that this article is from 2018 and dealing with a full stack Django application scenario with HTML/CSS templates. The principles of setting up the backend portion for User roles is still valid!
 - once user roles are set up on your backend, you can now utilize them on the frontend. Recommend reviewing the React Router slideshow for ideas on how to use descendant routes and conditional rendering to control who can access what parts of your application based on a role!
+=======
+# ReactDjangoTest
+>>>>>>> 488519c8d71f1eb59e5a23faa0b8db2f4e76f7fb

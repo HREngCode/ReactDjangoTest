@@ -16,12 +16,6 @@ def comments_list(request, id):
         queryset = queryset.filter(video_id=id)
         serializer = CommentSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    # try:
-    #     comments = Comment.objects.get()
-    #     serializer = CommentSerializer(comments, many=True)
-    #     return Response(serializer.data)
-    # except Comment.DoesNotExist:
-    #     return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET'])

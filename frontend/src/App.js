@@ -13,6 +13,7 @@ import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import SearchBar from './components/SearchBar/SearchBar';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -21,10 +22,11 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [users, setUsers] = useState([])
+  const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetchUsers();
-  }, [] );
+  }, []); //used when comoponent is first mounted
 
   const fetchUsers = async () => {
     try {
@@ -35,14 +37,14 @@ function App() {
     } catch (error) {
       console.log(error.message)
     }
+
   }
   return (
     <div>
       <Navbar />
-      <Link to="/login"> Login </Link>
-      <Link to="/"> YouTube </Link>
-      <Link to="/video"> Video </Link>
-      <Link to="/search"> Search </Link>
+      <div>
+        <SearchBar videos={videos} setVideos={setVideos}/>
+      </div>
       <Routes>
       <Route
           path="/"
@@ -51,6 +53,9 @@ function App() {
               <YouTubePage />
               {users && users.map(user => {
                 return<li key={user.id}>{user.name}</li>
+              })}
+              {videos && videos.map(video => {
+              return<li key={video.id}>{video.name}</li>
               })}
             </PrivateRoute>
           }

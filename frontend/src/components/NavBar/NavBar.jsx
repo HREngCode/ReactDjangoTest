@@ -16,11 +16,14 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <button onClick={() => navigate("/")}>YouTube</button>
+          <button onClick={() => navigate("/video")}>Video</button>
+          <button onClick={() => navigate("/search")}>Search</button>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
-          ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
+          ) : 
+            (<button onClick={() => navigate("/login")}>Login</button>)
+          }
         </li>
       </ul>
     </div>

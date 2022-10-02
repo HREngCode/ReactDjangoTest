@@ -31,8 +31,7 @@ const YouTubePage = () => {
     return (
       <div className="container">
         <h1>Home Page for {user.username}!</h1>
-        <Link to="/searchresults">Search Videos</Link>
-  
+        <Link to="/search">Search Videos</Link>
         {videos &&
           videos.map((video) => (
             <p key={video.id}>

@@ -16,8 +16,6 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import UsersPage from "./pages/UsersPage/UsersPage";
-import UserDetailPage from "./pages/UserDetailPage/UserDetailPage";
 
 
 function App() {
@@ -32,8 +30,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<PrivateRoute><YouTubePage /></PrivateRoute>}/>
           <Route path="/search" element={<PrivateRoute><SearchResultsPage /></PrivateRoute>} />
-          {/* <Route path="/search/:videoId" element={<PrivateRoute><VideoPage /></PrivateRoute>} /> */}
-          <Route path="/search/:albumId" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
+          <Route path="/search/:videoId" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
+          {/* <Route path="/search/:albumId" element={<PrivateRoute><VideoPage /></PrivateRoute>} /> */}
           </Routes>
           <Footer />
         </div>

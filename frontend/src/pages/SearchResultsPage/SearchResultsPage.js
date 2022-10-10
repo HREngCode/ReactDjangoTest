@@ -4,31 +4,31 @@ import { Link } from 'react-router-dom';
 
 
 const SearchResultsPage = (video) => {
-    const [albums, setAlbums] = useState([])
+    const [videos, setVideos] = useState([])
 
     useEffect(() => {
-        const fetchAlbums = async () => {
+        const fetchVideos = async () => {
             try {
               let response = await axios.get(
               "https://jsonplaceholder.typicode.com/albums"
               );
               console.log(response.data)
-              setAlbums(response.data)
+              setVideos(response.data)
               } catch (error) {
                 console.log(error.message);
               }
             }; 
-      fetchAlbums()
+      fetchVideos()
     }, []);
 
     return ( 
         <div>
             <h1> All Users</h1>
-            {albums && albums.map((album) => {
+            {videos && videos.map((video) => {
                 return (
-                <li key={album.id}>
-                    <Link to={`/search/${album.id}`}>
-                        {album.title}
+                <li key={video.id}>
+                    <Link to={`/search/${video.id}`}>
+                        {video.title}
                         </Link>
                         </li>
                 );

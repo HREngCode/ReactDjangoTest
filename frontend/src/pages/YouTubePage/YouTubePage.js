@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import SearchResultsPage from "../SearchResultsPage/SearchResultsPage";
-
+import { KEY } from "../../localKey"
 
 
 const YouTubePage = () => {
@@ -18,7 +17,7 @@ const YouTubePage = () => {
     useEffect(() => {
       const fetchVideos = async () => {
         try {
-          let response = await axios.get(`https://jsonplaceholder.typicode.com/albums`, {
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=duckhunting&key=${KEY}&part=snippet&type=video&maxResults=5`, {
             headers: {
               Authorization: "Bearer " + token,
             },
@@ -35,9 +34,9 @@ const YouTubePage = () => {
       <div className="container">
         <h1>Home Page</h1>
         <Link to="/search">Search Videos</Link>
-        {videos && videos.map((singleVideo, index) => (
+        {/* {videos && videos.map((singleVideo, index) => (
             <SearchResultsPage key={index} video={singleVideo}/>
-          ))}
+          ))} */}
       </div>
     );
   };

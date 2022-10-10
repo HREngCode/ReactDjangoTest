@@ -5,27 +5,27 @@ import axios from 'axios';
 
 const VideoPage = () => {
 
-    const {albumId} = useParams ()
-    const [album, setAlbum] = useState ({})
-    console.log(album)
+    const {videoId} = useParams ()
+    const [video, setVideo] = useState ({})
+    console.log(video)
 
     useEffect (() => {
 
-    const fetchAlbum = async() => {
+    const fetchVideo = async() => {
     try {
-        let response = await axios.get(`https://jsonplaceholder.typicode.com/albums/${albumId}`);
-        setAlbum(response.data)
+        let response = await axios.get(`https://jsonplaceholder.typicode.com/albums/${videoId}`);
+        setVideo(response.data)
     } 
     catch (error) {
         console.log(error)
     }
     }
-    fetchAlbum()
+    fetchVideo()
         
-    }, [albumId])
+    }, [videoId])
     return ( 
         <div>
-            <h1>Album Details {albumId}</h1>
+            <h1>Video Details {videoId}</h1>
             <h1>
                 This is the VideoPage
             </h1>

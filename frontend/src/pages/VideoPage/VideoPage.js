@@ -11,17 +11,6 @@ const VideoPage = () => {
 
     useEffect (() => {
 
-    const fetchVideo = async() => {
-    try {
-        let response = await axios.get(`https://jsonplaceholder.typicode.com/albums/${videoId}`);
-        setVideo(response.data)
-    } 
-    catch (error) {
-        console.log(error)
-    }
-    }
-    fetchVideo()
-        
     }, [videoId])
     return ( 
         <div>

@@ -2,22 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const nav = useNavigate()
-  function searchVideos(event) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleChange = (event) => {
     event.preventDefault();
-    nav("/search");
+    setSearchTerm(event.target.value)
+    console.log(searchTerm)
+    
   }
+
   return (
-    <form onSubmit={searchVideos}>
+    <div>
       <input
-        placeholder='"Search Videos'
-        type="text"
-        value={searchTerm}
-        onChange={(event) => setSearchTerm(event.target.value)}
-      />
-      <button type="submit">Search</button>
-    </form>
+      type="search"
+      placeholder='"Search Videos'
+      onChange={handleChange}  
+      value={searchTerm}/>
+    </div>
+
+      // <button type="submit" onClick={() => {fetchVideos()}}>Search</button>
+
   );
 };
 

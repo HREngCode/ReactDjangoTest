@@ -18,8 +18,7 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 
 
-function App() {
-          
+function App() {      
 
       return (
         <div className="App">

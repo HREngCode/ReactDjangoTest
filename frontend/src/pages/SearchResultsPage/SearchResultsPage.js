@@ -1,16 +1,19 @@
-import React from 'react';
 
-const SearchResultsPage = (props) => {
+const SearchResultsPage = (videos) => {
 
-    return ( 
+   return ( 
         <div>
-            {props.videos && props.videos.map((video) => {
-              return <div>
+          
+
+          This is where the search results should be
+
+            {/* {props.videos && props.videos.map((video) => {
+              <p key={video.id}>
                 {video.snippet.title}
-              </div>
-            })}
+              </p>
+            })} */}
         </div>
-     );
-}
+     ); 
+  }
  
 export default SearchResultsPage;

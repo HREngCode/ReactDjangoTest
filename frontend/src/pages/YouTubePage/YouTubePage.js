@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom"; 
 import axios from "axios";
 import { KEY } from "../../localKey";
 import SearchResultsPage from "../SearchResultsPage/SearchResultsPage";
@@ -11,6 +11,8 @@ const YouTubePage = ({searchTerm}) => {
     // The "token" value is the JWT token that you will send in the header of any request requiring authentication
     //TODO: Add an AddCars Page to add a car for a logged in user's garage
     
+  
+
     const fetchVideos = async (searchTerm) => {
       try {
         let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=5`);
@@ -30,10 +32,7 @@ const YouTubePage = ({searchTerm}) => {
       <div className="container">
         <h1>Home Page</h1>
         <button onClick={() => {fetchVideos(searchTerm)}}>Click Me for Search</button>
-        {/* {videos && videos.map((singleVideo) => (
-          <div>{singleVideo.snippet.title}</div> */}
-          <SearchResultsPage videos={videos}/>
-          {/* ))} */}
+        {/* <SearchResultsPage videos={videos}/> */}
       </div>
     );
   };

@@ -1,9 +1,15 @@
 // import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({setSearchTerm, searchTerm}) => {
 
-  const handleChage = (event) => {
+  let navigate = useNavigate();
+
+  const navigateSearchResults = () => {
+    navigate('/search')
+  }
+
+  const handleChange = (event) => {
     event.preventDefault();
     setSearchTerm(event.target.value)
     console.log(searchTerm)
@@ -13,9 +19,9 @@ const SearchBar = ({setSearchTerm, searchTerm}) => {
       <input
         type="text"  
         placeholder='"Search Videos'
-        onChange={handleChage}
+        onChange={handleChange}
         value={searchTerm}/>
-      <button type="submit">Search</button>
+      <button type="submit" onClick={navigateSearchResults} >Search</button>
     </div>
 
       //<button type="submit" onClick=[() => {fetchVideos()}]>Search</button>

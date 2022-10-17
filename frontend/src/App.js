@@ -21,7 +21,10 @@ import PrivateRoute from "./utils/PrivateRoute";
 
 
 function App() {      
-  const [searchTerm, setSearchTerm] = useState(''); //variable in usestate to store search term typed in
+  const [searchTerm, setSearchTerm] = useState(' '); //variable in usestate to store search term typed in
+  // const [searchResults, setSearchResults] = useState(' ');
+  const [videos, setVideos] = useState(' ');
+  const [displayVideo, setDisplayVideo] = useState(' ');
       return (
         <div className="App">
           <Navbar />
@@ -29,9 +32,9 @@ function App() {
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<PrivateRoute><YouTubePage searchTerm={searchTerm}/></PrivateRoute>}/>
-          <Route path="/search" element={<PrivateRoute><SearchResultsPage /></PrivateRoute>} />
-          <Route path="/video" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><YouTubePage setVideos={setVideos} videos={videos} searchTerm={searchTerm}/></PrivateRoute>}/>
+          <Route path="/search" element={<PrivateRoute><SearchResultsPage videos={videos} /></PrivateRoute>} />
+          <Route path="/video" element={<PrivateRoute><VideoPage setDisplayVideo={setDisplayVideo} displayVideo={displayVideo}/></PrivateRoute>} />
           </Routes>
           <Footer />
         </div>

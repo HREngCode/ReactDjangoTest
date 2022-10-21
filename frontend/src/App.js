@@ -40,12 +40,12 @@ function App() {
       console.log(error.response.data)
     }
   };
-
       return (
         <div className="App">
           <Navbar />
           <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} fetchVideos={fetchVideos}/>
           <ItemMapper videos={videos} itemComponent={VideoPresenter} itemName={"video"}/>
+          <VideoPresenter videos={videos} ItemMapper={ItemMapper}/>
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />

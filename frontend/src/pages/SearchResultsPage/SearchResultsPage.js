@@ -1,9 +1,9 @@
 import React from 'react';
-import ItemMapper from '../../components/ItemMapper';
+import VideoPresenter from '../../components/ItemMapper';
 
 const SearchResultsPage = (videos) => {
   return (
-    <ItemMapper videos={videos} />
+    <VideoPresenter videos={videos} />
   );
 };
 

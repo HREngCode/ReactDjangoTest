@@ -1,9 +1,11 @@
 import React from 'react';
-import VideoPresenter from '../../components/ItemMapper';
 
-const SearchResultsPage = (videos) => {
+const SearchResultsPage = (VideoPresenter) => {
   return (
-    <VideoPresenter videos={videos} />
+    <div>
+      This is the Search Page
+    </div>
+    
   );
 };
 

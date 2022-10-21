@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const VideoPresenter = (videos, ItemMapper) => {
+
+const VideoPresenter = (video) => {
   //destructure the video
-  const { id, snippet} = ItemMapper;
+  const {videos:{index}} = video;
   return (
     <div>
-      <p>{id}</p>
-      <p>{snippet}</p>
+      <p>{index}</p>
     </div>
   );
 };

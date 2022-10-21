@@ -45,12 +45,12 @@ function App() {
           <Navbar />
           <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} fetchVideos={fetchVideos}/>
           <ItemMapper videos={videos} itemComponent={VideoPresenter} itemName={"video"}/>
-          <VideoPresenter videos={videos} ItemMapper={ItemMapper}/>
+          <VideoPresenter videos={videos} />
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<PrivateRoute><YouTubePage fetchVideos={fetchVideos} videos={videos} searchTerm={searchTerm}/></PrivateRoute>}/>
-          <Route path="/search" element={<PrivateRoute><SearchResultsPage videos={videos} /></PrivateRoute>} />
+          <Route path="/search" element={<PrivateRoute><SearchResultsPage VideoPresenter={VideoPresenter} /></PrivateRoute>} />
           <Route path="/video" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
           </Routes>
           <Footer />

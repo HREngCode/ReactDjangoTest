@@ -3,7 +3,7 @@ import { useEffect } from "react";
 // import { Link } from "react-router-dom"; 
 
 
-const YouTubePage = ({searchTerm, fetchVideos}) => {
+const YouTubePage = () => {
     // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
     // The "token" value is the JWT token that you will send in the header of any request requiring authentication
     //TODO: Add an AddCars Page to add a car for a logged in user's garage
@@ -13,9 +13,8 @@ const YouTubePage = ({searchTerm, fetchVideos}) => {
 
     }, []);
     return (
-      <div className="container">
-        <h1>Home Page</h1>
-        <button onClick={() => {fetchVideos(searchTerm)}}>Click Me for Search</button>
+      <div>
+
       </div>
     );
   };

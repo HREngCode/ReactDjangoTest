@@ -26,9 +26,8 @@ import { KEY } from "./localKey";
 
 
 function App() {      
-  const [searchTerm, setSearchTerm] = useState(' '); //variable in usestate to store search term typed in
+  const [searchTerm, setSearchTerm] = useState(''); //variable in usestate to store search term typed in
   const [videos, setVideos] = useState([]);
-  const [displayVideo, setDisplayVideo] = useState(' ');
   const navigate = useNavigate();
 
   const fetchVideos = async (searchTerm) => {
@@ -45,14 +44,14 @@ function App() {
       return (
         <div className="App">
           <Navbar />
-          <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm}/>
+          <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} fetchVideos={fetchVideos}/>
           <ItemMapper videos={videos} itemComponent={VideoPresenter} itemName={"video"}/>
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<PrivateRoute><YouTubePage fetchVideos={fetchVideos} videos={videos} searchTerm={searchTerm}/></PrivateRoute>}/>
           <Route path="/search" element={<PrivateRoute><SearchResultsPage videos={videos} /></PrivateRoute>} />
-          <Route path="/video" element={<PrivateRoute><VideoPage setDisplayVideo={setDisplayVideo} displayVideo={displayVideo}/></PrivateRoute>} />
+          <Route path="/video" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
           </Routes>
           <Footer />
         </div>

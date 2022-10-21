@@ -1,13 +1,7 @@
-// import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+// import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({setSearchTerm, searchTerm}) => {
-
-  let navigate = useNavigate();
-
-  const navigateSearchResults = () => {
-    navigate('/search')
-  }
+const SearchBar = ({setSearchTerm, searchTerm, fetchVideos}) => {
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -21,7 +15,7 @@ const SearchBar = ({setSearchTerm, searchTerm}) => {
         placeholder='"Search Videos'
         onChange={handleChange}
         value={searchTerm}/>
-      <button type="submit" onClick={navigateSearchResults} >Search</button>
+      <button type="submit" onClick={() => {fetchVideos(searchTerm)}}>Search</button>
     </div>
 
       //<button type="submit" onClick=[() => {fetchVideos()}]>Search</button>

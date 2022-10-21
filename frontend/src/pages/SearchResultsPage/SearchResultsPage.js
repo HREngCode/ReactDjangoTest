@@ -1,13 +1,9 @@
 import React from 'react';
+import ItemMapper from '../../components/ItemMapper';
 
-const SearchResultsPage = (props) => {
+const SearchResultsPage = (videos) => {
   return (
-    <div>
-      {props.videos &&
-        props.videos.map((video) => {
-          return <p key={video.id}>{video.snippet.title}</p>;
-        })}
-    </div>
+    <ItemMapper videos={videos} />
   );
 };
 

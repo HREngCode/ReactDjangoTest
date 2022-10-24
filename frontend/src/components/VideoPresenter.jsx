@@ -1,14 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-
-const VideoPresenter = (video) => {
+const VideoPresenter = (props) => {
   //destructure the video
-  const {videos:{index}} = video;
+
   return (
     <div>
-      <p>{index}</p>
+      <ul><Link to="./video">{props.title}</Link></ul>
+      <ul>{props.default}</ul>
     </div>
   );
 };
-
 export default VideoPresenter;

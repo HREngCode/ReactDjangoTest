@@ -1,11 +1,10 @@
 import React from 'react';
 
-const SearchResultsPage = (VideoPresenter) => {
+const SearchResultsPage = () => {
   return (
     <div>
-      This is the Search Page
+
     </div>
-    
   );
 };
 

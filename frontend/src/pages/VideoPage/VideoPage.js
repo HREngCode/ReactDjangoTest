@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {props} from "../../components/VideoPresenter"
 
 
-const VideoPage = () => {
+const VideoPage = (props) => {
+    const tool = props.id
+    const {videoId} = props.id
 
-    const {videoId} = useParams ()
-    const [video, setVideo] = useState ({})
-    console.log(video)
+    console.log(videoId)
 
     useEffect (() => {
 
@@ -18,10 +19,12 @@ const VideoPage = () => {
                 This is the VideoPage
             </h1>
             <iframe title="Single Video Player" id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  src="https://www.youtube.com/embed/PeSBi6Uda5U?autoplay=1&origin=http://example.com"
   frameBorder="0"></iframe>
         </div>
      );
 }
  
 export default VideoPage;
+
+// `https://youtube.com/embed/${videoId}?autoplay=0'

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { VideoContext } from "../../context/VideoContext";
 // import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({setSearchTerm, searchTerm, fetchVideos}) => {
-
+const SearchBar = ({fetchVideos}) => {
+  const { searchTerm, setSearchTerm } = useContext(VideoContext)
   const handleChange = (event) => {
     event.preventDefault();
     setSearchTerm(event.target.value)

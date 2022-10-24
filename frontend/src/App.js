@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route} from "react-router-dom";
 import "./App.css";
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
@@ -16,18 +16,18 @@ import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 import Navbar from "./components/NavBar/NavBar";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Footer from "./components/Footer/Footer";
+import { VideoContext } from "./context/VideoContext";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 import ItemMapper from "./components/ItemMapper";
 import VideoPresenter from "./components/VideoPresenter";
-import axios from "axios";
-import { KEY } from "./localKey";
+import axios from 'axios';
+import {KEY} from "./localKey"
 
 
 function App() {      
-  const [searchTerm, setSearchTerm] = useState(''); //variable in usestate to store search term typed in
-  const [videos, setVideos] = useState([]);
+  const {setVideos} = useContext(VideoContext);
   const navigate = useNavigate();
 
   const fetchVideos = async (searchTerm) => {
@@ -43,15 +43,15 @@ function App() {
       return (
         <div className="App">
           <Navbar />
-          <SearchBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} fetchVideos={fetchVideos}/>
-          <ItemMapper videos={videos} itemComponent={VideoPresenter} itemName={"video"}/>
-          <VideoPresenter videos={videos} />
+          <SearchBar fetchVideos={fetchVideos}/>
+          <ItemMapper />
+          <VideoPresenter />
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<PrivateRoute><YouTubePage fetchVideos={fetchVideos} videos={videos} searchTerm={searchTerm}/></PrivateRoute>}/>
-          <Route path="/search" element={<PrivateRoute><SearchResultsPage VideoPresenter={VideoPresenter} /></PrivateRoute>} />
-          <Route path="/video" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><YouTubePage fetchVideos={fetchVideos} /></PrivateRoute>}/>
+          <Route path="/search" element={<PrivateRoute><SearchResultsPage /></PrivateRoute>} />
+          <Route path="/video" element={<PrivateRoute><VideoPage VideoPresenter={VideoPresenter} /></PrivateRoute>} />
           </Routes>
           <Footer />
         </div>

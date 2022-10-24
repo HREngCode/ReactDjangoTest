@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { VideoContext } from "../context/VideoContext";
 
-const ItemMapper = ({items=[], itemComponent:ItemComponent, itemName}) => {
+const ItemMapper = ({VideoPresenter}) => {
+    const { videos } = useContext(VideoContext);
+
     return ( 
-        <ul>
-            {items.map(item => <li><ItemComponent {...{[itemName]: item}}/></li>)}
-
-                {/* return <p key={item.id}>{item.snippet.title}</p>; */}
-
-          </ul>
+        <div>
+            {videos.map(item => <VideoPresenter key={item.index} title={item.snippet.title} thumbnail={item.snippet.thumbnails.default} id={item.id.videoId}/>)}      
+        </div> 
      );
 }
- 
+
 export default ItemMapper;

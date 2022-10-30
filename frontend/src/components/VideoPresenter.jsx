@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const VideoPresenter = (props) => {
-  //destructure the video
+//   // destructure the video
+
+console.log(props)
 
   return (
-    <div>
-      <ul><Link to="./video">{props.title}</Link></ul>
-      <ul>{props.default}</ul>
-    </div>
-  );
+      <div>
+        {props.title}
+        {props.id}
+        {props.thumbnail}
+      </div>
+      
+      );
 };
 export default VideoPresenter;

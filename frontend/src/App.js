@@ -41,7 +41,7 @@ function App() {
         <div className="App">
           <Navbar />
           <SearchBar fetchVideos={fetchVideos}/>
-          <VideoPresenter />
+         
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />

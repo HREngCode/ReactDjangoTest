@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { VideoContext } from "../context/VideoContext";
 
-const VideoPresenter = (props) => {
+const VideoPresenter = ({video}) => {
 //   // destructure the video
-
-console.log(props)
+ const { vidId, setVidId } = useContext(VideoContext);
 
   return (
       <div>
-        {props.title}
-        {props.id}
-        {props.thumbnail}
+        {console.log(video)}
+        {video.snippet.title}
+        {video.id.videoId}
+        <img src={video.snippet.thumbnails.default.url} alt="dog video"></img>
       </div>
       
       );

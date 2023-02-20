@@ -1,18 +1,30 @@
-import React, { useContext } from "react";
-import { VideoContext } from "../context/VideoContext";
+// //General Imports
+// import React, { useEffect, useContext } from "react";
 
-const VideoPresenter = ({video}) => {
-//   // destructure the video
- const { vidId, setVidId } = useContext(VideoContext);
+// //Context Imports
+// import { VideoContext } from "../context/VideoContext";
 
-  return (
-      <div>
-        {console.log(video)}
-        {video.snippet.title}
-        {video.id.videoId}
-        <img src={video.snippet.thumbnails.default.url} alt="dog video"></img>
-      </div>
+// const VideoPresenter = ({video}) => {
+// //   // destructure the video
+// const {vidId, setVidId} = useContext(VideoContext);
+
+// useEffect(() => {
+//   const fetchVidId = async () => {
+//     setVidId(video.id.videoId);
+//   }
+//   fetchVidId();
+// }, []);
+
+//   return (
+//       <div>
+//         {video.snippet.title}
+//         {video.id.videoId}
+//         <img src={video.snippet.thumbnails.default.url} alt="dog video"></img>
+//         <div>
+//         </div>
+//       </div>
+
       
-      );
-};
-export default VideoPresenter;
+//       );
+// };
+// export default VideoPresenter;

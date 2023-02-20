@@ -1,29 +1,27 @@
+//General Imports
 import React, { useEffect, useContext } from "react";
+import {Link} from 'react-router-dom';
+
+//Context Imports
 import { VideoContext } from "../../context/VideoContext";
 
 
-const HomePage = ({VideoPresenter}) => {
-  // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
-  // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  // TODO: Add an AddCars Page to add a car for a logged in user's garage
-  const { videos } = useContext(VideoContext);
-  // const { vidId, setVidId } = useContext(VideoContext);
 
-
-  useEffect(() => {
-
-  }, []);
-
+const HomePage = ({defaultVideo}) => {
+  const { defaultVideos } = useContext(VideoContext);
+  console.log(defaultVideos);
   return ( 
       <div>
-        {videos.map((video)=>{
-             return(
-              <VideoPresenter key={video.id.videoId} video={video}/>
-              )  
-        })}
+        {defaultVideos && defaultVideos.map((defaultVideo) => (
+          <p key={defaultVideo.id.videoId}>
+          <li>
+          <Link to={`/video/${defaultVideo.id.videoId}`}><img src={defaultVideo.snippet.thumbnails.default.url} alt="transformers video"></img></Link>
+          {defaultVideo.snippet.title}
+          {defaultVideo.id.videoId}
+          </li>
+          </p>
+        ))}
       </div>
-      
-
     );
   };
   

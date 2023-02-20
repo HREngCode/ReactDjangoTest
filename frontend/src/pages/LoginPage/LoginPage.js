@@ -1,5 +1,9 @@
 import React, { useContext, useEffect } from "react";
+
+//imported context
 import AuthContext from "../../context/AuthContext";
+
+//imported hook
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";

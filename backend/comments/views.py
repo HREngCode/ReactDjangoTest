@@ -1,4 +1,3 @@
-from cmath import log
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -27,10 +26,8 @@ def get_all_comments(request):
 
 
 @api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated]) 
+@permission_classes([AllowAny]) 
 def user_comments(request):
-    print(
-        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():

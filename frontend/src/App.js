@@ -1,9 +1,8 @@
 // General Imports
 import { Routes, Route} from "react-router-dom";
 import "./App.css";
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-
 
 // Pages Imports
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -26,28 +25,57 @@ import {KEY} from "./localKey"
 
 
 function App() {      
-  const {setVideos} = useContext(VideoContext);
+  const {videos, setVideos} = useContext(VideoContext);
+  const [comments, setComments]= useState([]);
+  const {defaultVideos, setDefaultVideos} = useContext(VideoContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchDefaultVideos();
+    fetchAllComments();
+  }, []); //used when comoponent is first mounted
 
   const fetchVideos = async (searchTerm) => {
     try {
       let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}&part=snippet&type=video&maxResults=5`);
       console.log(response.data)  
       setVideos(response.data.items);
+      navigate('/search')
     } catch (error) {
       console.log(error.response.data)
     }
   };
+
+  const fetchDefaultVideos = async () => {
+    try {
+      let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=transformers&key=${KEY}&part=snippet&type=video&maxResults=5`);
+      setDefaultVideos(response.data.items);
+      console.log(defaultVideos)  
+    } catch (error) {
+      console.log(error.response.data)
+    }
+  };
+
+  const fetchAllComments = async () => {
+  try {
+    let response = await axios.get(`http://127.0.0.1:8000/api/comments/all/`);
+    setComments(response.data.items);
+    console.log(comments)  
+  } catch (error) {
+    console.log(error.response.data)
+  }
+};
+
       return (
         <div className="App">
           <Navbar />
           <SearchBar fetchVideos={fetchVideos}/>
-         
           <Routes>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/" element={<PrivateRoute><HomePage VideoPresenter={VideoPresenter} /></PrivateRoute>}/>
-          <Route path="/search" element={<PrivateRoute><SearchResultsPage /></PrivateRoute>} />
-          <Route path="/video" element={<PrivateRoute><VideoPage /></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><HomePage defaultVideos={defaultVideos} fetchDefaultVideos={fetchDefaultVideos} /></PrivateRoute>}/>
+          <Route path="/search" element={<PrivateRoute><SearchResultsPage videos={videos} /></PrivateRoute>} />
+          <Route path="/video/:vidId" element={<PrivateRoute><VideoPage  /></PrivateRoute>} />
           </Routes>
           <Footer />
         </div>

@@ -9,17 +9,15 @@ import { VideoContext } from "../../context/VideoContext";
 
 const HomePage = ({defaultVideo}) => {
   const { defaultVideos } = useContext(VideoContext);
-  console.log(defaultVideos);
   return ( 
       <div>
         {defaultVideos && defaultVideos.map((defaultVideo) => (
-          <p key={defaultVideo.id.videoId}>
-          <li>
+          <div key={defaultVideo.id.videoId}>
+          <div>
           <Link to={`/video/${defaultVideo.id.videoId}`}><img src={defaultVideo.snippet.thumbnails.default.url} alt="transformers video"></img></Link>
-          {defaultVideo.snippet.title}
-          {defaultVideo.id.videoId}
-          </li>
-          </p>
+          <h4>{defaultVideo.snippet.title}</h4>
+          </div>
+          </div>
         ))}
       </div>
     );

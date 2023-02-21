@@ -17,8 +17,7 @@ const SearchResultsPage = ({video}) => {
           <p key={video.id.videoId}>
           <li>
           <Link to={`/video/${video.id.videoId}`}><img src={video.snippet.thumbnails.default.url} alt="dog video"></img></Link>
-          {video.snippet.title}
-          {video.id.videoId}
+          <h4>{video.snippet.title}</h4>
           </li>
           </p>
         ))}

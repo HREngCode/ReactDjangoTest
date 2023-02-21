@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     fetchDefaultVideos();
-    fetchAllComments();
+    // fetchAllComments();
   }, []); //used when comoponent is first mounted
 
   const fetchVideos = async (searchTerm) => {
@@ -56,18 +56,18 @@ function App() {
     }
   };
 
-  const fetchAllComments = async () => {
-  try {
-    let response = await axios.get(`http://127.0.0.1:8000/api/comments/all/`);
-    setComments(response.data.items);
-    console.log(comments)  
-  } catch (error) {
-    console.log(error.response.data)
-  }
-};
+//   const fetchAllComments = async () => {
+//   try {
+//     let response = await axios.get(`http://127.0.0.1:8000/api/comments/all/`);
+//     setComments(response.data.items);
+//     console.log(comments)  
+//   } catch (error) {
+//     console.log(error.response.data)
+//   }
+// };
 
       return (
-        <div className="App">
+        <div >
           <Navbar />
           <SearchBar fetchVideos={fetchVideos}/>
           <Routes>

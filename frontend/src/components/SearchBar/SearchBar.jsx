@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { VideoContext } from "../../context/VideoContext";
+import "./SearchBar.css";
 // import { useNavigate } from "react-router-dom";
 
 const SearchBar = ({fetchVideos}) => {
@@ -10,7 +11,7 @@ const SearchBar = ({fetchVideos}) => {
     console.log(searchTerm)
   }
   return (
-    <div>
+    <div className="searchbar">
       <input
         type="text"  
         placeholder='"Search Videos'

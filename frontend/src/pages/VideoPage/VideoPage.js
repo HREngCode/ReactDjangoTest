@@ -81,7 +81,8 @@ const VideoPage = () => {
                 </li>
                 </p>
                 ))} */}
-                <div>
+                <div>{user?
+                 (<div>
                     <label className="input-post">
                     ADD COMMENT:
                     </label>
@@ -92,6 +93,7 @@ const VideoPage = () => {
                     </div>
                     <button type='submit'>Post</button>
                     </form>
+                    </div>): (<div>YOU MUST BE LOGGED IN TO MAKE A COMMENT</div>)} 
                     <div>
                     <h4>
                         COMMENTS:

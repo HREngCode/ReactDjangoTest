@@ -19,7 +19,6 @@ import { VideoContext } from "./context/VideoContext";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import VideoPresenter from "./components/VideoPresenter";
 import axios from 'axios';
 import {KEY} from "./localKey"
 
@@ -56,15 +55,6 @@ function App() {
     }
   };
 
-//   const fetchAllComments = async () => {
-//   try {
-//     let response = await axios.get(`http://127.0.0.1:8000/api/comments/all/`);
-//     setComments(response.data.items);
-//     console.log(comments)  
-//   } catch (error) {
-//     console.log(error.response.data)
-//   }
-// };
 
       return (
         <div >

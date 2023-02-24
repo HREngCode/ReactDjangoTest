@@ -40,6 +40,10 @@ button:hover {
   text-align: center;
 }
 
+.grid-container {
+  display:flex;
+}
+
 .form {
   align-items: center;
   display: flex;
@@ -55,6 +59,22 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.title-page {
+  text-align: center;
+  word-wrap: break-word;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+.title-text {
+  text-align: center;
+  word-wrap: break-word;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 
 
